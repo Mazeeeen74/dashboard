@@ -29,11 +29,21 @@ ngx-datatable
 [FontAwesome / Bootstrap Icons]
 
 # Folder Structure
+```
 src/
 │
 ├── app/
 │   ├── components/
+│   │   ├── navbar/
+│   │   ├── sidebar/
+│   │   └── loading-screen/
+│   ├── pages/
+│   │   ├── home/
+│   │   └── items/
 │   ├── services/
+│   │   ├── api-service.service.ts
+│   │   ├── loading.service.ts
+│   │   └── sidebar-toggle.service.ts
 │   ├── interfaces/
 │   └── app.module.ts
 │
@@ -42,6 +52,7 @@ src/
 ├── index.html
 └── main.ts
 
+```
 # Setup and installation
 # 1. Clone the repo
 git clone https://github.com/your-username/your-angular-project.git
