@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+
+
+        <!-- Search Bar on the left -->
+        <form class="d-flex w-50 mx-2" role="search">
+            <div class="input-group">
+                <!-- Search Icon inside the input -->
+                <span class="input-group-text">
+                    <i class="bi bi-search text-muted"></i>
+                </span>
+                <input class="form-control bg-light" type="search" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+
+
+        <!-- Right-side Icons (Bag, Notification, User Photo) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="d-flex align-items-center ms-auto">
+              <button class="btn btn-link border rounded bg-light ms-3" aria-label="Shopping Bag">
+                <i class="bi bi-bag"></i>
+              </button>
+              <button class="btn btn-link border rounded bg-light ms-3" aria-label="Notifications">
+                <i class="bi bi-bell"></i>
+              </button>
+              <button class="btn btn-link ms-3" aria-label="User Photo">
+                <img src="assets/icons/avatar.png" alt="User Photo" class="rounded" width="40" height="40">
+              </button>
+            </div>
+          </div>
+          
+          
+          <button class="navbar-toggler d-md-none" (click)="toggleSideBar()" aria-label="Toggle Sidebar">
+            <i class="bi bi-list fs-5"></i>
+          </button>    
+
+    </div>
+</nav>

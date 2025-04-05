@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row match-height">
+    <div class="col-12">
+          <!-- Analytics Card -->
+    <div class="col-12">
+      <div class="card shadow-sm rounded-4 border-0 my-4">
+        <div class="card-header bg-white border-bottom-0 d-flex justify-content-between align-items-center">
+          <h4 class="card-title mb-0 fw-semibold">Analytics</h4>
+        </div>
+        <div class="card-body">
+          <div class="row g-4">
+            <!-- Metric Cards -->
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-light-primary p-3 rounded-circle d-flex justify-content-center align-items-center">
+                  <i class="bi bi-person-fill text-primary fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0 fw-bold">1000</h5>
+                  <small class="text-muted">Total Revenue</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-light-info p-3 rounded-circle d-flex justify-content-center align-items-center">
+                  <i class="bi bi-person-badge-fill text-info fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0 fw-bold">2000</h5>
+                  <small class="text-muted">Today's Revenue</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-light-danger p-3 rounded-circle d-flex justify-content-center align-items-center">
+                  <i class="bi bi-binoculars-fill text-danger fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0 fw-bold">500</h5>
+                  <small class="text-muted">Item Sold</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-light-success p-3 rounded-circle d-flex justify-content-center align-items-center">
+                  <i class="bi bi-person-lines-fill text-success fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0 fw-bold">70</h5>
+                  <small class="text-muted">User Active</small>
+                </div>
+              </div>
+            </div>
+          </div> <!-- /.row -->
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="row">
+          <!-- Total Revenue Chart -->
+    <div class=" col-md-7 mb-4">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-header bg-white border-bottom-0 px-4 py-3 d-flex justify-content-between align-items-center">
+          <h5 class="mb-0 fw-semibold text-dark">
+            <i class="bi bi-bar-chart-fill text-primary"></i> Total Revenue
+          </h5>
+          <span class="text-muted small">2025</span>
+        </div>
+        <div class="card-body p-4">
+          <apx-chart 
+            [series]="totalRevenuOptions.series" 
+            [chart]="totalRevenuOptions.chart"
+            [title]="totalRevenuOptions.title">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Revenue Chart -->
+    <div class="col-12 col-md-5 mb-4">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-header bg-white border-bottom-0 px-4 py-3 d-flex justify-content-between align-items-center">
+          <h5 class="mb-0 fw-semibold text-primary">
+            <i class="bi bi-bar-chart-fill"></i> Daily Revenue
+          </h5>
+          <span class="text-muted small">2025</span>
+        </div>
+        <div class="card-body p-4">
+          <apx-chart 
+            [series]="dailyRevenueOptions.series" 
+            [chart]="dailyRevenueOptions.chart"
+            [title]="dailyRevenueOptions.title">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
