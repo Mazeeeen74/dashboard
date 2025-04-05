@@ -1,4 +1,4 @@
-import { Menu } from "../interfaces/menu";
+import { Menu } from "../../interfaces/menu";
 
 /*----------  For SideBar items  ----------*/
 export const MENU_ITEMS: Menu[] = [

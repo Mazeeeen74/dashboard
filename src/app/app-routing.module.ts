@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 const routes: Routes = [
 
@@ -11,7 +11,7 @@ const routes: Routes = [
     /*---------- Applying lazy loading  ----------*/
     {
       path: 'items', 
-      loadChildren: () => import('./components/items/items/items.module').then(m => m.ItemsModule)
+      loadChildren: () => import('../pages/items/item-module/items/items.module').then(m => m.ItemsModule)
     },
 
 ];

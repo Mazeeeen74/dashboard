@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { SideBarToggleService } from '../services/side-bar-toggle.service';
+import { SideBarToggleService } from '../../services/side-bar-toggle.service';
 
 @Component({
   selector: 'app-nav-bar',

@@ -1,0 +1,22 @@
+<div
+  *ngIf="isLoading"
+  class="loading-overlay d-flex flex-column justify-content-center align-items-center gap-4"
+>
+  <!-- Centered Title -->
+  <div class="text-center">
+    <h1 class="display-4 fw-bold text-primary">
+      <i class="bi bi-stack me-2"></i>
+      Simple <span style="color: black;">Dashboard</span>
+    </h1>
+  </div>
+
+  <!-- Loading Text -->
+  <p class="text-white fw-bold fs-3">Loading...</p>
+
+  <!-- Spinner Animation -->
+  <div class="spin">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>

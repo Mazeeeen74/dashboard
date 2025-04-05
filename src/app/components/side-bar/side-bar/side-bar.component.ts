@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MENU_ITEMS } from '../menu-items';
-import { Menu } from '../../interfaces/menu';
-import { SideBarToggleService } from '../../services/side-bar-toggle.service';
+import { Menu } from '../../../interfaces/menu';
+import { SideBarToggleService } from '../../../services/side-bar-toggle.service';
 
 @Component({
   selector: 'app-side-bar',

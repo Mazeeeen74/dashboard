@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../../services/api-service.service';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../../app/services/api-service.service';
+import { LoadingService } from '../../app/services/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +12,23 @@ export class HomeComponent implements OnInit {
   totalRevenuOptions: any;
   dailyRevenueOptions: any;
 
+
+
+  
+  /*----------  Constructor  ----------*/
+  constructor(
+    private apiServie : ApiServiceService ,
+    private loading : LoadingService
+  )
+   { }   
+
+
   /*----------  NgOnInit  ----------*/
   ngOnInit(): void {
     this.totalRevenueChart();
     this.dailyRevenueChart();
     this.getproducts();
   }
-
-  
-  /*----------  Constructor  ----------*/
-  constructor(
-    private apiServie : ApiServiceService
-  )
-   { } 
-  
-
 
   /*----------  Total Revenue Chart  ----------*/
   totalRevenueChart() {
@@ -76,11 +79,13 @@ export class HomeComponent implements OnInit {
   
   /*----------  Get all products  ----------*/
   getproducts() {
+    this.loading.show();
     this.apiServie.getAllProducts().subscribe({
       next: (res) => {
-        console.log("data fetched succesfully",res)
+        this.loading.hide();
       } , 
       error: (err) => {
+        this.loading.hide();
         console.log("error",err)
       }
     })

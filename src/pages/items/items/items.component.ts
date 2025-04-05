@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ApiServiceService } from '../../services/api-service.service';
+import { ApiServiceService } from '../../../app/services/api-service.service';
+import { LoadingService } from '../../../app/services/loading.service';
 
 @Component({
   selector: 'app-items',
@@ -22,19 +23,23 @@ export class ItemsComponent implements OnInit {
 
 /*----------  Constructor  ----------*/
 constructor(
-  private apiservice : ApiServiceService
+  private apiservice : ApiServiceService, 
+  private loading : LoadingService
 ){ }
 
 
 /*----------  get all products  ----------*/
 getproducts(){
+  this.loading.show();
   this.apiservice.getAllProducts().subscribe({ 
     next:(res) => {
       this.products = res 
+
+      this.loading.hide();
       console.log(this.products)
     }, 
     error(err) {
-        console.log("Error in fetching",err)
+      console.log("Error in fetching",err)
     },
   }
   )

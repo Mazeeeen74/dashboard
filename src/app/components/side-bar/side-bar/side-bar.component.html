@@ -1,0 +1,39 @@
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-white  " [ngClass]="{'collapsed': isCollapsed,'d-none': isCollapsed, 'd-md-block': true  , 'overlay-sidebar': isCollapsed }">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <a href="/" class="d-flex align-items-center text-decoration-none">
+        <i class="bi bi-stack fs-4 me-2 fw-bold"></i> <!-- Make icon bold -->
+        <h1 class="fs-5 mb-0" *ngIf="!isCollapsed">Simple <span style="color: black;">DashBoard</span></h1>
+      </a>
+  
+      <!-- Sidebar Toggle Button -->
+    </div>
+  
+    <hr>
+  
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li *ngFor="let item of menuItems" class="nav-item">
+        <a *ngIf="!item.children" [routerLink]="item.url" class="nav-link" [routerLinkActive]="'active'">
+          <i class="bi" [ngClass]="'bi-'+item.icon+' fw-bold'"></i> <!-- Make icon bold -->
+          <span class="text-muted" *ngIf="!isCollapsed">{{ item.title }}</span>
+        </a>
+  
+        <!-- Dropdown Menu -->
+        <div *ngIf="item.children">
+          <a class="nav-link d-flex justify-content-between align-items-center" (click)="toggleSubmenu(item)">
+            <div>
+              <i class="bi" [ngClass]="'bi-'+item.icon+' fw-bold'"></i> <!-- Make icon bold -->
+              <span *ngIf="!isCollapsed">{{ item.title }}</span>
+            </div>
+            <i class="bi" [ngClass]="item.isOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+          </a>
+          <ul class="submenu list-unstyled ps-4" *ngIf="item.isOpen && !isCollapsed">
+            <li *ngFor="let subItem of item.children">
+              <a [routerLink]="subItem.url" class="nav-link" [routerLinkActive]="'active'">{{ subItem.title }}</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  
+    <hr>
+  </div>
