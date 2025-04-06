@@ -91,11 +91,14 @@
                       id="dropdownBrowserState"
                       aria-haspopup="true"
                       aria-expanded="false">
-                      <i class="bi bi-three-dots-vertical "></i>
+                      
                     </a>
-                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
-                      <a ngbDropdownItem class="d-flex align-items-center gap-2">
-                        <i class="bi bi-eye text-secondary"></i> Show Details
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end cursor-pointer">
+                      <a ngbDropdownItem class="d-flex align-items-center gap-2 cursor-pointer" style="cursor: pointer;" (click)="details(content, row)">
+                        <i class="bi bi-info-circle text-secondary"></i>Item details 
+                      </a>
+                      <a ngbDropdownItem class="d-flex align-items-center gap-2 cursor-pointer" style="cursor: pointer;" (click)="deleteProduct(row.id)">
+                        <i class="bi bi-trash text-danger"></i>Delete
                       </a>
                     </div>
                   </div>
@@ -109,3 +112,42 @@
     </div>
   </div>
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Item Details</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <!-- Item Image on the Left -->
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <img [src]="selectedItem?.image" alt="Item Image" class="img-fluid rounded shadow-sm" style="max-height: 200px;" />
+      </div>
+
+      <!-- Item Details on the Right -->
+      <div class="col-md-8">
+        <div class="mb-3">
+          <label class="form-label" for="title">Name</label>
+          <input type="text" class="form-control" [value]="selectedItem?.title" disabled id="title" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="price">Price</label>
+          <input type="text" class="form-control" [value]="selectedItem?.price" disabled  id="price"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="category">Category</label>
+          <input type="text" class="form-control" [value]="selectedItem?.category" disabled id="category"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="description">Description</label>
+          <textarea class="form-control" rows="3" [value]="selectedItem?.description" disabled id="description"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="deleteProduct(selectedItem?.id)">Delete</button>
+  </div>
+</ng-template>

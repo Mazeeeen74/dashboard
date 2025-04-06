@@ -4,15 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar/side-bar.component';
-import { HomeComponent } from '../pages/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { provideHttpClient } from '@angular/common/http';
-import { ItemsComponent } from '../pages/items/items/items.component';
+import { ItemsComponent } from './pages/items/items/items.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -29,7 +30,10 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
     AppRoutingModule , 
     RouterModule , 
     NgApexchartsModule , 
-    NgxDatatableModule
+    NgxDatatableModule , 
+    NgbModule
+    , NgbModalModule
+    
 
   ],
   providers: [provideHttpClient()],
