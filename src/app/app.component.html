@@ -1,18 +1,17 @@
-<div class="container-fluid d-flex">
-  <!-- Sidebar (fixed) -->
-  <app-side-bar></app-side-bar>
+<div class="container-wrapper d-flex h-100 w-100 overflow-hidden"> <!-- Prevent double scrollbars -->
+  <!-- Sidebar -->
+  
+  <app-side-bar></app-side-bar> <!-- Explicit height -->
+  <!-- Main Content Area -->
+  <div class="content-wrapper flex-grow-1 d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <app-nav-bar class="flex-shrink-0"></app-nav-bar> <!-- Prevent growth -->
 
-  <div class="content-wrapper flex-grow-1 d-flex flex-column ml-2 ">
-    <!-- Navbar (fixed) -->
-    <div > 
-      <app-nav-bar></app-nav-bar>
-    </div>
-
-    <!-- Main Content (Dynamic) -->
-    <div class="content-container flex-grow-1 p-3 bg-light">
-      <router-outlet></router-outlet>  
+    <!-- Main Content -->
+    <div class="content-container flex-grow-1 p-3 bg-light overflow-auto"> <!-- Scrollable -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
 
-<app-loading-screen></app-loading-screen>
+<app-loading-screen class="position-fixed top-0 start-0"></app-loading-screen>

@@ -1,5 +1,5 @@
-<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-white  " [ngClass]="{'collapsed': isCollapsed,'d-none': isCollapsed, 'd-md-block': true  , 'overlay-sidebar': isCollapsed }">
-    <div class="d-flex align-items-center justify-content-between w-100">
+<div class="sidebar  " [ngClass]="{'collapsed': isCollapsed,'d-none': isCollapsed, 'd-md-block': true  , 'overlay-sidebar': isCollapsed }">
+    <div class="d-flex align-items-center justify-content-between w-100 mb-auto">
       <a href="/" class="d-flex align-items-center text-decoration-none">
         <i class="bi bi-stack fs-4 me-2 fw-bold"></i> <!-- Make icon bold -->
         <h1 class="fs-5 mb-0" *ngIf="!isCollapsed">Simple <span style="color: black;">DashBoard</span></h1>
@@ -10,7 +10,7 @@
   
     <hr>
   
-    <ul class="nav nav-pills flex-column mb-auto">
+    <ul class="nav nav-pills flex-column">
       <li *ngFor="let item of menuItems" class="nav-item">
         <a *ngIf="!item.children" [routerLink]="item.url" class="nav-link" [routerLinkActive]="'active'">
           <i class="bi" [ngClass]="'bi-'+item.icon+' fw-bold'"></i> <!-- Make icon bold -->

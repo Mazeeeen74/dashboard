@@ -19,12 +19,15 @@ export class ItemsComponent implements OnInit {
   public isOpened : boolean = false
   public startDate !: Date 
   public endDate !: Date 
+  public hovering : boolean = false
+  public categories : any
+  public filteredProducts : any
+  public isFiltered : boolean = false
 
 
 /*----------  NgOnInit  ----------*/
   ngOnInit(): void {
     this.getproducts();
-
   }
 
 
@@ -56,8 +59,10 @@ getproducts(){
         date: formatDate(randomDate, 'yyyy-MM-dd', 'en-US'),
         
       }));
-      
+      this.filteredProducts = this.products
+      this.categories = ["All",...new Set(this.products.map((item : any) => item.category))]
       this.loading.hide();
+      console.log("categories",this.categories)
       console.log(this.products)
     }, 
     error(err) {
@@ -117,6 +122,13 @@ onDateChange() {
   }
 }
 
-
-
+filter(event : any){
+ if(event.target.value == "All"){
+  this.filteredProducts = this.products
+  this.isFiltered = false
+ }else{
+  this.filteredProducts = this.products.filter((item : any) => item.category == event.target.value)
+  this.isFiltered = true
+}
+}
 }
